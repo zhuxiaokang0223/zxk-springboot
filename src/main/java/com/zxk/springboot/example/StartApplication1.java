@@ -1,5 +1,7 @@
 package com.zxk.springboot.example;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,8 +22,14 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableAutoConfiguration
 public class StartApplication1 {
 
+    private static final Logger log = LoggerFactory.getLogger(StartApplication1.class);
+
     @RequestMapping("/")
     public String home(){
+        log.info("aaaaaaaaaaaa");
+        log.debug("bbbbbbbbbb");
+        log.error("ccccccccccc");
+        log.warn("ddddddddddddd");
         return "Hello Word!";
     }
 

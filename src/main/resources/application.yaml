@@ -2,3 +2,7 @@ wo:
   de:
     url: www.baidu.com
     name: baidu
+
+# 日志
+logging:
+  config: classpath:log4j2.properties
