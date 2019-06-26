@@ -1,4 +1,4 @@
-package com.zxk.springboot.example;
+package com.zxk.springboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
