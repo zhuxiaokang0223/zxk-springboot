@@ -3,6 +3,8 @@ package com.zxk.springboot.control;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.zxk.springboot.StartApplication1;
+import com.zxk.springboot.base.ApiResponse;
+import com.zxk.springboot.exception.ZxkException;
 import com.zxk.springboot.model.MyTable;
 import com.zxk.springboot.model.dao.MyTableMapper;
 import org.slf4j.Logger;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -48,19 +51,25 @@ public class MyTableController {
     }
 
     @GetMapping("/add")
-    public String add(){
+    public ApiResponse add(){
         MyTable myTable = new MyTable();
         myTable.setId(3);
         myTable.setSignDay(333333);
         myTable.setStudentid("11111111111111111111111111111111");
         myTableMapper.insertSelective(myTable);
 
-        MyTable myTable1 = new MyTable();
-        myTable1.setId(4);
-        myTable1.setSignDay(333333);
-        myTable1.setStudentid("111111111111111111111111111111112");
-        myTableMapper.insertSelective(myTable);
-        return "成功";
+//        throw new ZxkException(300, "插入失败");
+
+//
+//        MyTable myTable1 = new MyTable();
+//        myTable1.setId(4);
+//        myTable1.setSignDay(333333);
+//        myTable1.setStudentid("111111111111111111111111111111112");
+//        myTableMapper.insertSelective(myTable);
+
+        List<Integer> arr = new ArrayList<>();
+        arr.add(1);
+        return new ApiResponse().setData(arr);
     }
 
 }
