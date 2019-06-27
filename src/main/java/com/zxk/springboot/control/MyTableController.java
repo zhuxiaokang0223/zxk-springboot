@@ -8,6 +8,8 @@ import com.zxk.springboot.model.dao.MyTableMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -43,6 +45,22 @@ public class MyTableController {
         myTable2.stream().forEach(myTable3 -> System.err.println("第二个查询不带分页:"+myTable3.getId()));
         log.info("第二个查询不带分页:total:{}", page.getTotal());
         return "Hello Word!";
+    }
+
+    @GetMapping("/add")
+    public String add(){
+        MyTable myTable = new MyTable();
+        myTable.setId(3);
+        myTable.setSignDay(333333);
+        myTable.setStudentid("11111111111111111111111111111111");
+        myTableMapper.insertSelective(myTable);
+
+        MyTable myTable1 = new MyTable();
+        myTable1.setId(4);
+        myTable1.setSignDay(333333);
+        myTable1.setStudentid("111111111111111111111111111111112");
+        myTableMapper.insertSelective(myTable);
+        return "成功";
     }
 
 }
