@@ -13,8 +13,8 @@ spring:
   ## 数据源配置
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
-    username: root
-    password: root
+    username: ENC(/1gzOx/C9dgvNCtvh4QYzw==)
+    password: ENC(8rmWL5SE6b88abaLynPmgQ==)
     driver-class-name: com.mysql.jdbc.Driver
     ### 数据源类型durid
     type: com.alibaba.druid.pool.DruidDataSource
@@ -38,3 +38,8 @@ pagehelper:
   reasonable: true
   support-methods-arguments: true
   params: count=countSql
+
+# 盐 (用于配置文件数据加密解密)
+jasypt:
+    encryptor:
+        password: tmg
