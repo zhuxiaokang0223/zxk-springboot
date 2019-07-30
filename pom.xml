@@ -74,6 +74,13 @@
             <version>2.1.1</version>
         </dependency>
 
+        <!-- BCryptPasswordEncoder加密 -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-crypto</artifactId>
+            <version>5.1.5.RELEASE</version>
+        </dependency>
+
     </dependencies>
 
     <build>
